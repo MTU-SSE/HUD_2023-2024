@@ -1,0 +1,14 @@
+basic features:
+ - Interface with sensors
+  - GPS over serial (have code)
+  - ECU over can
+   - O2 sensor
+   - more sensors (fill in as needed)
+ - Show data
+  - Grab data from sensors
+  - send to hud screen over serial   (have code)
+ - Handle driver input
+  - read "lap count" button from hand controls
+ - Data logging
+  - write data to sd card every 1/X seconds  (have bad code)
+  - if remote logging is enabled send data to LoRa Module
