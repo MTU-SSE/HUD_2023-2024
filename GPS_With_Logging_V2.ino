@@ -92,6 +92,7 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(lapPin),lapEvent, RISING);
 mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
   Serial.print("Accelerometer range set to: ");
+  //we should remove this
   switch (mpu.getAccelerometerRange()) {
   case MPU6050_RANGE_2_G:
     Serial.println("+-2G");
