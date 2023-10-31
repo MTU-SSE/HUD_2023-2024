@@ -152,6 +152,7 @@ mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
  sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
 }
+
 void lapEvent(){
    nextLap = true; 
 }
@@ -264,7 +265,7 @@ void GPS_loop() {
   longitude = GPS.location.lng();
   altitude = GPS.altitude.feet(); //the GPS altitude in feet
   speed = GPS.speed.mph();
-  numberOfSatellites = GPS.satellites.value();
+  numberOfSatellites =/home/mo/school/Supermileage/code/HUD_Code/how_to_use_doxygen.md GPS.satellites.value();
   heading = GPS.course.deg();
 
   //TODO: COMMENT THIS
@@ -278,6 +279,7 @@ void GPS_loop() {
 
   setDisplayVar("Speed", "val", displayFormatted(speed));
 }
+
 void angle_Loop(){ // loop for the angle and acceleration
   Wire.beginTransmission(MPU_addr);
   Wire.write(0x3B);
@@ -293,7 +295,8 @@ void angle_Loop(){ // loop for the angle and acceleration
   x= RAD_TO_DEG * (atan2(-yAng, -zAng)+PI);
   y= RAD_TO_DEG * (atan2(-xAng, -zAng)+PI);
   z= RAD_TO_DEG * (atan2(-yAng, -xAng)+PI);
-}
+}/home/mo/school/Supermileage/code/HUD_Code/how_to_use_doxygen.md
+
 String displayFormatted(double input) {
   // the display interprets doubles weird they need to be multiplied by 10
   return (String) (int) (input * 10);
