@@ -187,7 +187,6 @@ void makeFolder() { // makes the folder using the month and date
   SD.mkdir(fileName);
   fileName.concat("/");
   fileName.concat(GPS.time.hour());
-      
 }
 
 String dateTime() {
@@ -231,7 +230,7 @@ void SD_loop() {
   // if the file isn't open, pop up an error:
   else {
     Serial.println("error opening the file");
-  }  
+  }
 }
 
 void GPS_loop() {
