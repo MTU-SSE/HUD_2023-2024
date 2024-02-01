@@ -54,6 +54,7 @@ int maxVal=402;
 double x;
 double y;
 double z;
+
 /**
  * Default arduino function that runs once when the arduino is first powered/reset.
  * We use this function to start serial connections to the GPS and the Display
@@ -264,7 +265,7 @@ void GPS_loop() {
   longitude = GPS.location.lng();
   altitude = GPS.altitude.feet(); //the GPS altitude in feet
   speed = GPS.speed.mph();
-  numberOfSatellites =/home/mo/school/Supermileage/code/HUD_Code/how_to_use_doxygen.md GPS.satellites.value();
+  numberOfSatellites = GPS.satellites.value();
   heading = GPS.course.deg();
 
   //TODO: COMMENT THIS
@@ -294,7 +295,7 @@ void angle_Loop(){ // loop for the angle and acceleration
   x= RAD_TO_DEG * (atan2(-yAng, -zAng)+PI);
   y= RAD_TO_DEG * (atan2(-xAng, -zAng)+PI);
   z= RAD_TO_DEG * (atan2(-yAng, -xAng)+PI);
-}/home/mo/school/Supermileage/code/HUD_Code/how_to_use_doxygen.md
+}
 
 String displayFormatted(double input) {
   // the display interprets doubles weird they need to be multiplied by 10
