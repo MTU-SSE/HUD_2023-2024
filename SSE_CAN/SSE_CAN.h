@@ -1,6 +1,6 @@
 #include <CAN.h>
 #include <string.h>
-//#include <SSE_PacketTranslator.h>
+#include <SSE_CAN\SSE_PacketTranslator.h>
 
 void CAN_Scanner(int);
 void CAN_LogPacket();
@@ -56,7 +56,6 @@ void CAN_LogPacket(){
   }
   Serial.println();
 }
-
 
 /*
 *Transmits a string to a specified id character by character over CAN and encapsulates
