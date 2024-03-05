@@ -1,1 +1,0 @@
-A header file may have an exact copy of itself but formatted as an .ino file. this is so I can test whether or not the code will compile using arduino specific libraries.
