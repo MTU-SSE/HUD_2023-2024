@@ -1,6 +1,6 @@
 #include <CAN.h>
 #include <string.h>
-#include <SSE_CAN\SSE_PacketTranslator.h>
+#include "SSE_PacketTranslator.h"
 
 void CAN_Scanner(int);
 void CAN_LogPacket();
@@ -14,11 +14,14 @@ void CAN_LogPacket();
 *@param   baudrate  the baudrate of the CAN communication in bytes per second
 *@return            0 or 1 based off if the startup failed or not
 */
-void CAN_Startup(long baudrate){
+int CAN_Startup(long baudrate){
   Serial.println("Attempting to start CAN communications");
   if(!CAN.begin(baudrate)){
     Serial.println("Starting CAN failed");
     return 0;
+  }
+  else{
+    Serial.println("Starting CAN WORKED!!!!!!!");
   }
   //this checks for ANY packets on the CAN bus then calls CAN_Scanner function with the length of the packet as the input
   CAN.onReceive(CAN_Scanner);
@@ -66,7 +69,7 @@ void CAN_LogPacket(){
 *@param   message   The message (8 byte limit) you want to transmit    
 *@return            a 1 on completion;
 */
-void CAN_TransmitString(int id,char *message){
+int CAN_TransmitString(int id,char *message){
   int messageLength = strlen(message);
   
   Serial.print("Sending message to id: 0x");
@@ -89,7 +92,7 @@ void CAN_TransmitString(int id,char *message){
 *@param   packet    The message (1 byte limit) you want to transmit    
 *@return            a 1 on completion;
 */
-void CAN_TransmitPacket(int id,uint8_t packet){
+int CAN_TransmitPacket(int id,uint8_t packet){
   Serial.print("Sending packet to id: ");
   Serial.println(id, HEX);
 
@@ -98,6 +101,8 @@ void CAN_TransmitPacket(int id,uint8_t packet){
   CAN.write(packet);
 
   CAN.endPacket();
+
+  Serial.println("Packet has been sent");
   return 1;
 }
 

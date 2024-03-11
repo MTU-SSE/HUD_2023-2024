@@ -73,7 +73,7 @@ void ignoreCANPacket(){
 */
 void ignoreMultipleCANPackets(uint8_t numberToSkip){
 
-  for (uint8_t i = 0;; i < numberToSkip; i++){
+  for (uint8_t i = 0; i < numberToSkip; i++){
     ignoreCANPacket();
   }
 
