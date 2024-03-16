@@ -11,8 +11,10 @@ void setup(){
 
 
 void loop(){
-    CAN_TransmitPacket(2032,'8');
+    //CAN.onReceive(CAN_Scanner);
+    //CAN_TransmitPacket(0x123,'8');
     //Serial.print("Packet segment content: 0x");
+    
     can_data = CAN.read();
     if (can_data != -1) {
       Serial.print("n");
